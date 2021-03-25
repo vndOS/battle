@@ -1,9 +1,9 @@
 let users_turn=false, matrix_for_user, matrix_for_rival, matrix_discover_rival, matrix_discover_user,
-flag_submarine_user=false, flag_submarine_rival=false, flag_dir;
+flag_submarine_user=false, flag_submarine_rival=false, flag_dir, time=0;
 
 const ani_ctx = ani_canvas.getContext("2d");
 
-
+window.setInterval(waves, 30);
 
 matrix_for_user = [
     [],[],[],[],[],[],[],[]
@@ -776,4 +776,34 @@ function endGame(player){
     return true;
 
 }
+
+function waves(){
+
+	ani_ctx.fillStyle = "MediumBlue";
+	ani_ctx.fillRect(0, 0, ani_canvas.width, ani_canvas.height);
+
+	ani_ctx.beginPath();
+	ani_ctx.strokeStyle = 'RoyalBlue';
+	ani_ctx.lineWidth = 5;
+	ani_ctx.lineCap = "round";
+
+
+    
+	time++;
+	
+	if(time===15){
+		time=0;
+	}
+
+
+for(let b=0;b<=17;b++){
+	for(let a=0;a<=9;a++){
+        ani_ctx.beginPath();
+        ani_ctx.moveTo(a*30, b*15+time);
+        ani_ctx.quadraticCurveTo((a*30)+15, ((b-1)*15)+time, (30+(a*30)), (b*15)+time);
+        ani_ctx.stroke();
+	}
+}
+}
+
 
