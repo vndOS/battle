@@ -58,6 +58,10 @@ cont1_rival++;
 
 }while(cont1_rival<=5);
 
+for(let j=0;j<=5;j++){
+    buffer_vessels[j].v_al_rival=vessel_img_ob_rival[j].v_al;
+}
+
 loadstgThree();
 
 }
@@ -96,10 +100,12 @@ let click_x = x-1;
 let click_y = y-1;
 let flag_align;
 
-if(align==1){
+if(align===1){
     flag_align=true;
-}else if(align==0){
+    
+}else if(align===0){
     flag_align=false;
+    
 }
 
 switch(flag_align){
@@ -109,13 +115,13 @@ case false:
     switch(num){
 
         case 0:
-        if((board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x]!=0)){
+        if((board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x]!==0)){
         return false;  
         }
 
-        else if((board_matrix_rows_rival[click_y][click_x]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        else if((board_matrix_rows_rival[click_y][click_x]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
         
         return false;   
         }else{
@@ -128,17 +134,17 @@ case false:
 
         case 1:
 
-        if((board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+1]!=0)){
+        if((board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+1]!==0)){
         return false;  
         }
 
-        else if((click_x==12)||
-        (board_matrix_rows_rival[click_y][click_x]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        else if((click_x===12)||
+        (board_matrix_rows_rival[click_y][click_x]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
                 
 		        return false;
             }else{
@@ -154,19 +160,19 @@ case false:
 
         case 2:
 
-        if((board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+2]!=0)){
+        if((board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+2]!==0)){
         return false;  
         }
 
         else if(click_x>=11||
-        (board_matrix_rows_rival[click_y][click_x]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+2]!=0)||
+        (board_matrix_rows_rival[click_y][click_x]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+2]!==0)||
         (vessel_img_ob_rival[num].is_set==true)){
                 
 		        return false;
@@ -184,23 +190,23 @@ case false:
 
         case 3:
 
-        if((board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x]!=0)
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+3]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+3]!=0)){
+        if((board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x]!==0)
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+3]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+3]!==0)){
         return false;  
         }
 
         else if((click_x>=10)||
-        (board_matrix_rows_rival[click_y][click_x]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+3]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        (board_matrix_rows_rival[click_y][click_x]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+3]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
                 
 		        return false;
             }else{
@@ -218,26 +224,26 @@ case false:
 
         case 4:
 
-        if((board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+3]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+3]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+4]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+4]!=0)){
+        if((board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+3]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+3]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+4]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+4]!==0)){
         return false;  
         }
 
         else if((click_x>=9)||
-        (board_matrix_rows_rival[click_y][click_x]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+3]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+4]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        (board_matrix_rows_rival[click_y][click_x]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+3]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+4]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
                 
 		        return false;
             }else{
@@ -256,31 +262,31 @@ case false:
 
         case 5:
 
-        if((board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+3]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+3]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+3]!=0)){
+        if((board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+3]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+3]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+3]!==0)){
         return false;  
         }
 
         else if((click_x>=10)||
-        (board_matrix_rows_rival[click_y][click_x]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+3]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+3]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        (board_matrix_rows_rival[click_y][click_x]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+3]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+3]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
                 
 		        return false;
             }else{
@@ -310,13 +316,13 @@ case true:
     switch(num){
 
         case 0:
-        if((board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+2]!=0)){
+        if((board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+2]!==0)){
             return false; 
         }
 
-        else if((board_matrix_rows_rival[click_y][click_x]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        else if((board_matrix_rows_rival[click_y][click_x]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
         
         return false;   
         }else{
@@ -329,17 +335,17 @@ case true:
 
         case 1:
 
-        if((board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+2]!=0)){
+        if((board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+2]!==0)){
             return false; 
         }
 
         else if((click_y==7)||
-        (board_matrix_rows_rival[click_y][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        (board_matrix_rows_rival[click_y][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
                 
 		        return false;
             }else{
@@ -355,20 +361,20 @@ case true:
 
         case 2:
 
-        if((board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+2]!=0)){
+        if((board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+2]!==0)){
             return false; 
         }
 
         else if(click_y>=6||
-        (board_matrix_rows_rival[click_y][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        (board_matrix_rows_rival[click_y][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
                 
 		        return false;
             }else{
@@ -385,23 +391,23 @@ case true:
 
         case 3:
 
-        if((board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+2]!=0)){
+        if((board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+2]!==0)){
             return false; 
         }
 
         else if((click_y>=5)||
-        (board_matrix_rows_rival[click_y][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        (board_matrix_rows_rival[click_y][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
                 
 		        return false;
             }else{
@@ -419,26 +425,26 @@ case true:
 
         case 4:
 
-        if((board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+4][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+4][click_x+2]!=0)){
+        if((board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+4][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+4][click_x+2]!==0)){
             return false; 
         }
 
         else if((click_y>=4)||
-        (board_matrix_rows_rival[click_y][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+4][click_x]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        (board_matrix_rows_rival[click_y][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+4][click_x]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
                 
 		        return false;
             }else{
@@ -457,31 +463,31 @@ case true:
 
         case 5:
 
-        if((board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+3]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+3]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+3]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+2]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+3]!=0)){
+        if((board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+3]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+3]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+3]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+2]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+3]!==0)){
             return false; 
         }
 
         else if((click_y>=5)||
-        (board_matrix_rows_rival[click_y][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x]!=0)||
-        (board_matrix_rows_rival[click_y][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+1][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+2][click_x+1]!=0)||
-        (board_matrix_rows_rival[click_y+3][click_x+1]!=0)||
-        (vessel_img_ob_rival[num].is_set==true)){
+        (board_matrix_rows_rival[click_y][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x]!==0)||
+        (board_matrix_rows_rival[click_y][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+1][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+2][click_x+1]!==0)||
+        (board_matrix_rows_rival[click_y+3][click_x+1]!==0)||
+        (vessel_img_ob_rival[num].is_set===true)){
                 
 		        return false;
             }else{

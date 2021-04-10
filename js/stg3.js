@@ -3,6 +3,10 @@ flag_submarine_user=false, flag_submarine_rival=false, flag_dir, time=0;
 
 const ani_ctx = ani_canvas.getContext("2d");
 
+const ani_ctx2 = ani_canvas2.getContext("2d");
+
+const ani_ctx3 = ani_canvas3.getContext("2d");
+
 window.setInterval(waves, 30);
 
 matrix_for_user = [
@@ -30,6 +34,23 @@ function getRandomInt2(min, max) {
 
 
 
+let img_vessel = new Image();
+
+const img_vessel_sub = new Image();
+img_vessel_sub.src = 'img/one.png';
+
+const img_torpedo1 = new Image();
+img_torpedo1.src = 'img/torpedo1.svg';
+
+const img_torpedo2 = new Image();
+img_torpedo2.src = 'img/torpedo2.svg';
+
+const img_torpedo3 = new Image();
+img_torpedo3.src = 'img/torpedo3.svg';
+
+const img_torpedo4 = new Image();
+img_torpedo4.src = 'img/torpedo4.svg';
+
 canvas.addEventListener('click', getshotCoords);
 
 
@@ -43,11 +64,17 @@ stageThree();
 
 function stageThree(){
 
+    buffer_vessels[0].v_al_rival=false;
+    buffer_vessels[0].v_al_user=false;
+  
+
     let msj = document.createElement('p');
-    let msj_red;
+    
     msj.innerText = 'Game Start!';
     console_user.appendChild(msj);
     console_user.scrollTop = console_user.scrollHeight;
+
+    
 
     users_turn=true;
 
@@ -119,7 +146,7 @@ if(users_turn==false){
     return;
 }
 
-users_turn=false;
+
 
 let x=event.offsetX * canvas.width / canvas.clientWidth;
 let y=event.offsetY * canvas.height / canvas.clientHeight;
@@ -155,7 +182,7 @@ let click_y;
         users_turn=true;
         return;
 
-    }else if(result==false){
+    }else if(result===false){
 
 
         msj.innerText = 'No Ships Over There';
@@ -168,12 +195,12 @@ let click_y;
         console_user.scrollTop = console_user.scrollHeight;
 
         animateShot(result);
-    
+        users_turn=false;
         graphicMatrix(matrix_for_user);
 		
 		
 
-        setTimeout(() => rivalsTurn(), 500);
+        setTimeout(() => rivalsTurn(), 1000);
 		
 		return;
 
@@ -196,7 +223,7 @@ let click_y;
             return;
         }
 
-        setTimeout(() => usersTurn(), 500);
+        setTimeout(() => usersTurn(), 1000);
 
         return;
     }else if(result==='submarine'){
@@ -217,8 +244,8 @@ let click_y;
             return;
         }
 
-        setTimeout(() => usersTurn(), 500);
-
+        setTimeout(() => usersTurn(), 1000);
+        
     }
 
 }
@@ -283,12 +310,75 @@ function checkShot(y, x, player){
 
 function animateShot(shot){
 
+    
+
     monitor.appendChild(ani_canvas);
     ani_canvas.style.display = "block";
 
-    ani_ctx.fillStyle = 'Navy';
-    ani_ctx.fillRect(0, 0, ani_canvas.width, ani_canvas.height);
+    if(shot===false){
+        failAni();
+    }else if(shot!==false&&shot!=='submarine'){
+        
+        ani_canvas2.style.display = "block";
+        img_vessel.src = buffer_vessels[shot-1].src_v;
 
+        
+        img_vessel.onload = function() {
+            switch(shot){
+
+                case 2:
+
+                ani_ctx2.drawImage(img_vessel, 127, 60, 50, 116);
+
+                break;
+
+                case 3:
+                
+                ani_ctx2.drawImage(img_vessel, 127, 40, 50, 172);
+
+                break;
+
+                case 4:
+                
+                ani_ctx2.drawImage(img_vessel, 127, 7, 50, 230);
+
+                break;
+
+                case 5:
+                
+                ani_ctx2.drawImage(img_vessel, 127, 4, 50, 245);
+
+                break;
+
+                case 6:
+                
+                ani_ctx2.drawImage(img_vessel, 105, 4, 100, 245);
+
+                break;
+
+            }
+        }
+        
+
+    
+    setTimeout(() => clearAni(), 1000);
+    
+
+    }else if(shot==='submarine'){
+
+        ani_canvas2.style.display = "block";
+        
+
+       
+        ani_ctx2.drawImage(img_vessel_sub, 127, 100, 50, 50);
+        
+        
+        setTimeout(() => clearAni(), 1000);   
+    }
+
+    
+
+    
 }
 
 
@@ -344,7 +434,7 @@ function rivalsTurn(){
         
         graphicMatrix(matrix_for_rival);
 
-        setTimeout(() => usersTurn(), 500);
+        setTimeout(() => usersTurn(), 1000);
 		return;
 
     }else if((result>1)&&(result<=6)){
@@ -366,7 +456,7 @@ function rivalsTurn(){
             return;
         }
 
-        setTimeout(() => rivalsTurn(), 500);
+        setTimeout(() => rivalsTurn(), 1000);
         return;
 
     }else if(result==='submarine'){
@@ -387,7 +477,7 @@ function rivalsTurn(){
             return;
         }
 
-        setTimeout(() => rivalsTurn(), 500);
+        setTimeout(() => rivalsTurn(), 1000);
         return;
     }
 
@@ -806,4 +896,55 @@ for(let b=0;b<=17;b++){
 }
 }
 
+function clearAni(){
 
+    ani_ctx2.clearRect(0, 0, ani_ctx2.canvas.width, ani_ctx2.canvas.height);
+
+}
+
+function failAni(){
+
+
+        let point = getRandomInt2(1, 4);
+
+        ani_canvas3.style.display = "block";
+        
+
+       switch(point){
+        
+        case 1:
+
+        ani_ctx3.drawImage(img_torpedo1, 0, 0, 50, 50);
+
+        break;
+
+        case 2:
+
+        ani_ctx3.drawImage(img_torpedo2, ani_ctx3.canvas.width*(8/10), 0, 50, 50);
+
+        break;
+
+        case 3:
+
+        ani_ctx3.drawImage(img_torpedo3, 0, ani_ctx3.canvas.height*(8/10), 50, 50);
+
+        break;
+
+        case 4:
+
+        ani_ctx3.drawImage(img_torpedo4, ani_ctx3.canvas.width*(8/10), ani_ctx3.canvas.height*(8/10), 50, 50);
+
+        break;
+
+        }
+
+        
+        
+        setTimeout(() => clearaniTor(), 1000); 
+}
+
+function clearaniTor(){
+
+    ani_ctx3.clearRect(0, 0, ani_ctx3.canvas.width, ani_ctx3.canvas.height);
+
+}

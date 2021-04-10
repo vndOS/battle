@@ -1,42 +1,99 @@
 const console_user=document.getElementById("console_user"),
 buton_one=document.getElementById("buton_one");
 
+let ani_canvas_el = document.createElement('canvas');
+ani_canvas_el.setAttribute("wdith", "250px");
+ani_canvas_el.setAttribute("height", "250px");
+ani_canvas_el.setAttribute("style", "box-shadow:0 0 40px 30px DarkCyan;cursor:none;display:none;position:absolute;z-index:1;");
+ani_canvas_el.setAttribute("id", "ani_canvas");
+
+monitor.appendChild(ani_canvas_el);
+
+
+const ani_canvas = document.getElementById("ani_canvas");
+
+let ani_canvas_el2 = document.createElement('canvas');
+ani_canvas_el2.setAttribute("wdith", "250px");
+ani_canvas_el2.setAttribute("height", "250px");
+ani_canvas_el2.setAttribute("style", "box-shadow:0 0 40px 30px DarkCyan;cursor:none;display:none;position:absolute;z-index:2;");
+ani_canvas_el2.setAttribute("id", "ani_canvas2");
+
+monitor.appendChild(ani_canvas_el2);
+
+
+const ani_canvas2 = document.getElementById("ani_canvas2");
+
+let ani_canvas_el3 = document.createElement('canvas');
+ani_canvas_el3.setAttribute("wdith", "250px");
+ani_canvas_el3.setAttribute("height", "250px");
+ani_canvas_el3.setAttribute("style", "box-shadow:0 0 40px 30px DarkCyan;cursor:none;display:none;position:absolute;z-index:3;");
+ani_canvas_el3.setAttribute("id", "ani_canvas3");
+
+monitor.appendChild(ani_canvas_el3);
+
+
+const ani_canvas3 = document.getElementById("ani_canvas3");
+
 let buffer_vessels = [
     {
     sinked_user:false,
     sinked_rival:false,
     name_user:'',
-    name_rival:''
+    name_rival:'',
+    src_h:'',
+    src_v:'',
+    v_al_user:'',
+    v_al_rival:false
     },
     {
     sinked_user:false,
     sinked_rival:false,
     name_user:'',
-    name_rival:''
+    name_rival:'',
+    src_h:'',
+    src_v:'',
+    v_al_user:'',
+    v_al_rival:''
     },
     {
     sinked_user:false,
     sinked_rival:false,
     name_user:'',
-    name_rival:''
+    name_rival:'',
+    src_h:'',
+    src_v:'',
+    v_al_user:'',
+    v_al_rival:''
     },
     {
     sinked_user:false,
     sinked_rival:false,
     name_user:'',
-    name_rival:''
+    name_rival:'',
+    src_h:'',
+    src_v:'',
+    v_al_user:'',
+    v_al_rival:''
     },
     {
     sinked_user:false,
     sinked_rival:false,
     name_user:'',
-    name_rival:''
+    name_rival:'',
+    src_h:'',
+    src_v:'',
+    v_al_user:'',
+    v_al_rival:''
     },
     {
     sinked_user:false,
     sinked_rival:false,
     name_user:'',
-    name_rival:''
+    name_rival:'',
+    src_h:'',
+    src_v:'',
+    v_al_user:'',
+    v_al_rival:''
     }
 ];
 
@@ -65,12 +122,16 @@ function readConsole(){
 
     console_user.addEventListener('mouseleave', playConsole);
 
+    console_user.style.opacity = .8;
+
 }
 
 function playConsole(){
     console_user.style.height = '40px';
 
     console_user.addEventListener('mouseenter', readConsole);
+
+    console_user.style.opacity = 1;
 }
 
 function loadstgOne(){

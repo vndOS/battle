@@ -79,17 +79,6 @@ let shapes = shape_section.querySelectorAll("img");
 
 
 
-let ani_canvas_el = document.createElement('canvas');
-ani_canvas_el.setAttribute("wdith", "250px");
-ani_canvas_el.setAttribute("height", "250px");
-ani_canvas_el.setAttribute("style", "box-shadow:0 0 40px 30px DarkCyan;cursor:none;display:none;");
-ani_canvas_el.setAttribute("id", "ani_canvas");
-
-monitor.appendChild(ani_canvas_el);
-
-
-const ani_canvas = document.getElementById("ani_canvas");
-
 
 
 
@@ -275,8 +264,11 @@ for(let a=0;a<=12;a++){
 	}
 
 }
-
+try{
 placeVessel(num, click_x, click_y);
+}catch(err){
+undoPos();
+}
 
 setTimeout(preConf, 500);
 
@@ -576,7 +568,7 @@ case false:
     if(g==5){
 
         ctx.drawImage(vessel_img2, (click_x)*60, (click_y)*46, 240, 92);
-
+        vessel_img_ob[g].v_al = false;
         msj = document.createElement('p');
         msj.innerText = vessel_img_ob[g].name_us+" is positioned.";
         console_user.appendChild(msj);
@@ -585,7 +577,7 @@ case false:
     }else if(g!=5){
         
         ctx.drawImage(vessel_img2, (click_x)*60, (click_y)*46, (g+1)*60, 46);
-
+        vessel_img_ob[g].v_al = false;
         msj = document.createElement('p');
         msj.innerText = vessel_img_ob[g].name_us+" is positioned.";
         console_user.appendChild(msj);
@@ -599,7 +591,7 @@ case true:
     if(g==5){
 
         ctx.drawImage(vessel_img2_v, (click_x)*60, (click_y)*46, 120, 184);
-
+        vessel_img_ob[g].v_al = true;
         msj = document.createElement('p');
         msj.innerText = vessel_img_ob[g].name_us+" is positioned.";
         console_user.appendChild(msj);
@@ -608,7 +600,7 @@ case true:
     }else if(g!=5){
 
         ctx.drawImage(vessel_img2_v, (click_x)*60, (click_y)*46, 60, (g+1)*46);
-
+        vessel_img_ob[g].v_al = true;
         msj = document.createElement('p');
         msj.innerText = vessel_img_ob[g].name_us+" is positioned.";
         console_user.appendChild(msj);
@@ -672,6 +664,11 @@ function confPos(){
         for(let h=0;h<=5;h++){
             buffer_vessels[h].name_user=vessel_img_ob[h].name_us;
             buffer_vessels[h].name_rival=vessel_img_ob[h].name_jp;
+            buffer_vessels[h].v_al_user = vessel_img_ob[h].v_al;
+            buffer_vessels[h].src_h = vessel_img_ob[h].src_h;
+            buffer_vessels[h].src_v = vessel_img_ob[h].src_v;
+
+            
         }
         
         cont1=0;
