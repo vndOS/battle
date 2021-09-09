@@ -42,28 +42,28 @@ const img_vessel_sub = new Image();
 img_vessel_sub.src = 'img/one.png';
 
 const img_torpedo1 = new Image();
-img_torpedo1.src = 'img/torpedo1.svg';
+img_torpedo1.src = 'img/torpedo1.png';
 
 const img_torpedo2 = new Image();
-img_torpedo2.src = 'img/torpedo2.svg';
+img_torpedo2.src = 'img/torpedo2.png';
 
 const img_torpedo3 = new Image();
-img_torpedo3.src = 'img/torpedo3.svg';
+img_torpedo3.src = 'img/torpedo3.png';
 
 const img_torpedo4 = new Image();
-img_torpedo4.src = 'img/torpedo4.svg';
+img_torpedo4.src = 'img/torpedo4.png';
 
 const img_torpedo5 = new Image();
-img_torpedo5.src = 'img/torpedo5.svg';
+img_torpedo5.src = 'img/torpedo5.png';
 
 const img_torpedo6 = new Image();
-img_torpedo6.src = 'img/torpedo6.svg';
+img_torpedo6.src = 'img/torpedo6.png';
 
 const img_torpedo7 = new Image();
-img_torpedo7.src = 'img/torpedo7.svg';
+img_torpedo7.src = 'img/torpedo7.png';
 
 const img_torpedo8 = new Image();
-img_torpedo8.src = 'img/torpedo8.svg';
+img_torpedo8.src = 'img/torpedo8.png';
 
 const img_part1 = new Image();
 img_part1.src = 'img/part1.png';
