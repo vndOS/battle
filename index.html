@@ -15,17 +15,18 @@
     
 <br><br><br><br>
 	
-<div class="row2">
-<div id='simpleModal' class='modal'>
+<div class="row2"><center>
+     <div id="simpleModal" class="modal">
 
-    <div class='modal-content'>
+   	     <div class="modal-content">
 
-        <span class='closeBtn'>&times;</span>
+        	<span class="closeBtn">&times;</span>
 	    
-	    <img src="./img/inst.gif"></img>    
-	</div>
-	</div>
-	</div>
+	    	<img src="./img/inst.gif"></img>
+	     
+	     </div>
+      </div>
+</center></div>
 
 
 <div class="row1">
@@ -52,6 +53,28 @@
     </div>
 
     </div>
+	
+<script>
+	
+let modal
+
+let closeBtn
+	
+window.addEventListener('load', ()=>{
+
+	modal = document.getElementById('simpleModal')
+	modal.style.display = 'block'
+	closeBtn = document.getElementsByClassName('closeBtn')[0]
+	closeBtn.addEventListener('click', closeModal)
+})
+
+
+function closeModal(){
+    
+	modal.style.display = 'none'
+}		
+	
+</script>
 
 <div id='load_zone'><script src='js/buffer.js'></script></div>
 
